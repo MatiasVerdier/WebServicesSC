@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ws;
 
 import baseDatos.ManejadorBD;
@@ -37,17 +33,13 @@ public class ServicioCategorias {
 
     
     @WebMethod(operationName = "nuevaCategoria")
-    public int nuevaCategoria(@WebParam(name = "nombre") String nombre, @WebParam(name = "imagen") String imagen) {
+    public int nuevaCategoria(@WebParam(name = "nombre") String nombre, @WebParam(name = "imagen") String imagen) throws SQLException {
         this.conectarBD();
         Categoria c = new Categoria();
         c.setNombre(nombre);
         c.setImagen(imagen);
-        try {
-            return ControladorCategorias.getInstancia().altaCategoria(c);
-        } catch (SQLException ex) {
-            Logger.getLogger(ServicioCategorias.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
-        }
+
+        return ControladorCategorias.getInstancia().altaCategoria(c);
     }
 
 
