@@ -1,5 +1,6 @@
 package ws;
 
+import Conexion.Conexion;
 import controladores.ControladorCompras;
 import controladores.ControladorUsuarios;
 import controladores.Controladorjuegos;
@@ -21,12 +22,14 @@ public class ServicioCompras {
 
     @WebMethod(operationName = "verComprasJuego")
     public ArrayList verComprasJuego(@WebParam(name = "idJuego") int idJuego) {
+        Conexion.conectarBD();
         return ControladorCompras.getInstancia().verComprasPorJuego(idJuego);
     }
 
     @WebMethod(operationName = "altaCompra")
     @Oneway
     public void altaCompra(@WebParam(name = "nickUsuario") String nickUsuario, @WebParam(name = "idJuego") int idJuego) {
+        Conexion.conectarBD();
         try {
             Usuario u = ControladorUsuarios.getInstancia().find(nickUsuario);
             Juego j = Controladorjuegos.getInstancia().buscarJuegoPorID(idJuego);
@@ -42,6 +45,7 @@ public class ServicioCompras {
 
     @WebMethod(operationName = "comproJuego")
     public boolean comproJuego(@WebParam(name = "idUsuario") int idUsuario, @WebParam(name = "idJuego") int idJuego) {
+        Conexion.conectarBD();
         return ControladorCompras.getInstancia().comproJuego(idUsuario, idJuego);
     }
 }
