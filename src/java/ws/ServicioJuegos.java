@@ -16,51 +16,91 @@ import javax.jws.WebParam;
 public class ServicioJuegos {
 
     @WebMethod(operationName = "Buscar")
-    public ArrayList Buscar(@WebParam(name = "busqueda") String busqueda) throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().buscar(busqueda);
+    public ArrayList Buscar(@WebParam(name = "busqueda") String busqueda) {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().buscar(busqueda);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "buscarJuegoPorId")
-    public Juego buscarJuegoPorId(@WebParam(name = "id_juego") int id_juego) throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().buscarJuegoPorID(id_juego);
+    public Juego buscarJuegoPorId(@WebParam(name = "id_juego") int id_juego)  {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().buscarJuegoPorID(id_juego);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "listarJuegosPorCategoria")
-    public ArrayList listarJuegosPorCategoria(@WebParam(name = "id_cat") int id_cat) throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().listarJuegosPorCategoria(id_cat);
+    public ArrayList listarJuegosPorCategoria(@WebParam(name = "id_cat") int id_cat)  {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().listarJuegosPorCategoria(id_cat);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "verInfoJuego")
-    public Juego verInfoJuego(@WebParam(name = "id_juego") int id_juego) throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().verInfoJuego(id_juego);
+    public Juego verInfoJuego(@WebParam(name = "id_juego") int id_juego)  {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().verInfoJuego(id_juego);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "listarJuegos")
-    public ArrayList listarJuegos() throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().listarJuegos();
+    public ArrayList listarJuegos() {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().listarJuegos();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "listarJuegosConCompras")
-    public ArrayList listarJuegosConCompras() throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().listarJuegosConCompras();
+    public ArrayList listarJuegosConCompras() {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().listarJuegosConCompras();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "listarJuegosPorCliente")
-    public ArrayList listarJuegosPorCliente(@WebParam(name = "id_usuario") int id_usuario) throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().listarJuegosPorCliente(id_usuario);
+    public ArrayList listarJuegosPorCliente(@WebParam(name = "id_usuario") int id_usuario) {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().listarJuegosPorCliente(id_usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "listarJuegosPorDesarrollador")
-    public ArrayList listarJuegosPorDesarrollador(@WebParam(name = "id_usuario") int id_usuario) throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().listarJuegosPorDesarrollador(id_usuario);
+    public ArrayList listarJuegosPorDesarrollador(@WebParam(name = "id_usuario") int id_usuario) {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().listarJuegosPorDesarrollador(id_usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @WebMethod(operationName = "bajaJuego")
@@ -75,9 +115,14 @@ public class ServicioJuegos {
     }
 
     @WebMethod(operationName = "listarJuegosPorDesarrolladorVersionAprobada")
-    public ArrayList listarJuegosPorDesarrolladorVersionAprobada(@WebParam(name = "id_usuario") int id_usuario) throws SQLException {
-        Conexion.conectarBD();
-        return Controladorjuegos.getInstancia().listarJuegosPorDesarrolladorVersionAprobada(id_usuario);
+    public ArrayList listarJuegosPorDesarrolladorVersionAprobada(@WebParam(name = "id_usuario") int id_usuario) {
+        try {
+            Conexion.conectarBD();
+            return Controladorjuegos.getInstancia().listarJuegosPorDesarrolladorVersionAprobada(id_usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJuegos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
 }
