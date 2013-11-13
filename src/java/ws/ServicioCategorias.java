@@ -14,31 +14,15 @@ import javax.jws.WebParam;
 @WebService(serviceName = "ServicioCategorias")
 public class ServicioCategorias {
 
-    @WebMethod(operationName = "nuevaCategoria")
-    public int nuevaCategoria(@WebParam(name = "nombre") String nombre, @WebParam(name = "imagen") String imagen) {
-        try {
-            Conexion.conectarBD();
-            Categoria c = new Categoria();
-            c.setNombre(nombre);
-            c.setImagen(imagen);
-
-            return ControladorCategorias.getInstancia().altaCategoria(c);
-        } catch (SQLException ex) {
-            Logger.getLogger(ServicioCategorias.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
-        }
-    }
-
-
     @WebMethod(operationName = "listarCategorias")
-    public ArrayList listarCategorias() {
+    public ArrayList<Categoria> listarCategorias() {
         Conexion.conectarBD();
         return ControladorCategorias.getInstancia().listarCategorias();
     }
 
 
     @WebMethod(operationName = "listarCategoriasPorJuego")
-    public ArrayList listarCategoriasPorJuego(@WebParam(name = "id_juego") int id_juego) {
+    public ArrayList<Categoria> listarCategoriasPorJuego(@WebParam(name = "id_juego") int id_juego) {
         Conexion.conectarBD();
         return ControladorCategorias.getInstancia().verCategoriasPorJuego(id_juego);
     }
